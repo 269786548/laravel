@@ -23,6 +23,8 @@ define('LARAVEL_START', microtime(true));
 
 require __DIR__.'/../vendor/autoload.php';
 
+require __DIR__.'/../app/Http/functions.php';  // 新增加的文件
+
 /*
 |--------------------------------------------------------------------------
 | Turn On The Lights

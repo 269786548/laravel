@@ -49,6 +49,9 @@ class IndexController extends Controller
             case 'user':
                 $query = new User();
                 break;
+            case 'task':
+                $query = new task();
+                break;
             case 'role':
                 $query = new Role();
                 break;

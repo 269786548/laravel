@@ -176,6 +176,24 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['aut
         Route::delete('advert/destroy', 'AdvertController@destroy')->name('admin.advert.destroy')->middleware('permission:config.advert.destroy');
     });
 });
+//任务管理
+Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['auth', 'permission:task.manage']], function () {
+        //任务管理
+    Route::group(['middleware' => 'permission:task.task'], function () {
+        Route::get('task', 'TaskController@index')->name('admin.task');
+        Route::get('task/data', 'TaskController@data')->name('admin.task.data');
+        Route::get('task/create', 'TaskController@create')->name('admin.task.create')->middleware('permission:task.task.create');
+        Route::post('task/create', 'TaskController@create')->name('admin.task.create')->middleware('permission:task.task.create');
+        Route::post('task/store', 'TaskController@store')->name('admin.task.store')->middleware('permission:task.task.create');
+        Route::get('task/download', 'TaskController@download')->name('admin.task.download')->middleware('permission:task.task.download');
+        Route::get('task/{id}/edit', 'TaskController@edit')->name('admin.task.edit')->middleware('permission:task.task.edit');
+        Route::post('task/taskSt', 'TaskController@taskSt')->name('admin.task.taskSt')->middleware('permission:task.task.taskSt');
+        Route::put('task/{id}/update', 'TaskController@update')->name('admin.task.update')->middleware('permission:task.task.edit');
+        Route::delete('task/destroy', 'TaskController@destroy')->name('admin.task.destroy')->middleware('permission:task.task.destroy');
+        Route::get('task/{id}/excelExports', 'TaskController@excelExports')->name('admin.task.excelExports')->middleware('permission:task.task.excelExports');;
+    });
+    
+});
 //会员管理
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['auth', 'permission:member.manage']], function () {
     //账号管理

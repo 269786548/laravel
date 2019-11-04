@@ -1,0 +1,100 @@
+<?php echo e(csrf_field()); ?>
+
+<div class="layui-form-item">
+    <label for="" class="layui-form-label">文件上传</label>
+    <div class="layui-upload">
+      <button type="button" class="layui-btn layui-btn-normal" id="test2">选择文件</button>
+      <span  id ='file_up'></span>
+            <div class="layui-upload-list" >
+            <input type="hidden" name="file_name" id="thumb" />
+<!--                 <ul id="layui-upload-box" class="layui-clear">
+                    <?php if(isset($article->thumb)): ?>
+                        <li><img src="<?php echo e($article->thumb); ?>" /><p>上传成功</p></li>
+                    <?php endif; ?>
+                </ul>
+             <input type="hidden" name="thumb" id="thumb" value="<?php echo e($article->thumb??''); ?>"> -->   
+            </div>
+    </div>
+</div>
+
+<div class="layui-form-item">
+    <label for="" class="layui-form-label">任务名称</label>
+    <div class="layui-input-inline">
+        <input type="text" name="name" value="<?php echo e($task->name ?? old('name')); ?>" lay-verify="required" placeholder="请输入任务名称" class="layui-input" >
+    </div>
+</div>
+<div class="layui-form-item">
+    <label for="" class="layui-form-label">选择模板</label>
+    <div class="layui-input-inline">
+        <select name="template_id" lay-verify="required">
+        <?php $__currentLoopData = $menus; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $menu): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+            <option value="<?php echo e($menu['id']); ?>"><?php echo e($menu['template_name']); ?> </option>
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+
+          </select>
+    </div>
+</div>
+
+<div class="layui-form-item">
+    <label for="" class="layui-form-label">日期选择</label>
+    <div class="layui-input-inline">
+        <input type="text" name = 'date_time' value="<?php echo e($task->date_time??old('date_time')); ?>"class="layui-input" id="test6" placeholder=" - " lay-key="1" lay-verify="required">
+    </div>
+</div>
+<div class="layui-form-item">
+    <label for="" class="layui-form-label">时间段选择</label>
+    <div class="layui-input-inline">
+        <input type="text" name = 'period_range' value="<?php echo e($task->period_range??old('period_range')); ?>"class="layui-input" id="time1" placeholder=" , " lay-key="10" lay-verify="required">
+    </div>
+</div>
+<div class="layui-form-item">
+    <label for="" class="layui-form-label">屏蔽省份</label>
+    <div class="layui-input-block">
+        <input type="text" name="city" value="<?php echo e($task->city??old('city')); ?>" lay-verify="required" placeholder="请输入标题" class="layui-input" >
+    </div>
+</div>
+
+<div class="layui-form-item">
+    <div class="layui-input-block">
+        <button type="submit" class="layui-btn" lay-submit="" lay-filter="formDemo">确 认</button>
+        <a  class="layui-btn" href="<?php echo e(route('admin.task')); ?>" >返 回</a>
+    </div>
+</div>
+<style>
+    #layui-upload-box li{
+        width: 120px;
+        height: 100px;
+        float: left;
+        position: relative;
+        overflow: hidden;
+        margin-right: 10px;
+        border:1px solid #ddd;
+    }
+    #layui-upload-box li img{
+        width: 100%;
+    }
+    #layui-upload-box li p{
+        width: 100%;
+        height: 22px;
+        font-size: 12px;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        line-height: 22px;
+        text-align: center;
+        color: #fff;
+        background-color: #333;
+        opacity: 0.6;
+    }
+    #layui-upload-box li i{
+        display: block;
+        width: 20px;
+        height:20px;
+        position: absolute;
+        text-align: center;
+        top: 2px;
+        right:2px;
+        z-index:999;
+        cursor: pointer;
+    }
+</style>

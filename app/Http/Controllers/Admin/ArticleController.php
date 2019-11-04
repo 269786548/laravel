@@ -54,6 +54,13 @@ class ArticleController extends Controller
         $categorys = Category::with('allChilds')->where('parent_id',0)->orderBy('sort','desc')->get();
         //标签
         $tags = Tag::get();
+        // $tags = array(
+        //         array(
+        //             'name'=>'test',
+        //             'id'=>'1',
+        //         )
+        //     );
+        // dump($tags);
         return view('admin.article.create',compact('tags','categorys'));
     }
 

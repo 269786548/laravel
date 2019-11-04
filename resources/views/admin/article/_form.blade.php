@@ -5,7 +5,7 @@
         <select name="category_id" lay-verify="required">
             <option value=""></option>
             @foreach($categorys as $category)
-                <option value="{{ $category->id }}" @if(isset($article->category_id)&&$article->category_id==$category->id)selected @endif >{{ $category->name }}</option>
+                <option value="{{ $category->id }}" @if(isset($article->category_id)&&$article->category_id==$category['id'])selected @endif >{{ $category['name'] }}</option>
                 @if(isset($category->allChilds)&&!$category->allChilds->isEmpty())
                     @foreach($category->allChilds as $child)
                         <option value="{{ $child->id }}" @if(isset($article->category_id)&&$article->category_id==$child->id)selected @endif >&nbsp;&nbsp;&nbsp;┗━━{{ $child->name }}</option>

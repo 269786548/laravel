@@ -121,7 +121,7 @@ return [
     |
     */
 
-    'log' => env('APP_LOG', 'single'),
+    'log' => env('APP_LOG', 'daily'),
 
     'log_level' => env('APP_LOG_LEVEL', 'debug'),
 
@@ -183,6 +183,7 @@ return [
         Mews\Captcha\CaptchaServiceProvider::class,
         Yansongda\LaravelPay\PayServiceProvider::class,
         SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class,
+        Maatwebsite\Excel\ExcelServiceProvider::class,
 
     ],
 
@@ -235,7 +236,7 @@ return [
 
         'Captcha' => Mews\Captcha\Facades\Captcha::class,
         'Pay' => Yansongda\LaravelPay\Facades\Pay::class,
-
+        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
     ],
 
 ];
