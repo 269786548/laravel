@@ -168,8 +168,9 @@
         <div class="layadmin-body-shade" layadmin-event="shade"></div>
     </div>
 </div>
+    <script src="https://www.layuicdn.com/layui/layui.js"></script>
 
-<script src="/static/admin/layuiadmin/layui/layui.js"></script>
+<!-- <script src="/static/admin/layuiadmin/layui/layui.js"></script> -->
 <script>
     layui.config({
         base: '/static/admin/layuiadmin/' //静态资源所在路径

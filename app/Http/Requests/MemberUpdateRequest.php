@@ -25,11 +25,11 @@ class MemberUpdateRequest extends FormRequest
     {
         $return =  [
             'name'  => 'required|min:2',
-            'phone'   => 'required|numeric|regex:/^1[3456789][0-9]{9}$/|unique:members,phone,'.$this->get('id').',id',
+            // 'phone'   => 'required|numeric|regex:/^1[3456789][0-9]{9}$/|unique:members,phone,'.$this->get('id').',id',
         ];
-        if ($this->get('password') || $this->get('password_confirmation')){
-            $return['password'] = 'required|confirmed|min:6|max:14';
-        }
+        // if ($this->get('password') || $this->get('password_confirmation')){
+        //     $return['password'] = 'required|confirmed|min:6|max:14';
+        // }
         return $return;
     }
 }

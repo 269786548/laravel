@@ -37,6 +37,17 @@
     }
 </style>
 <script>
+       layui.use('laydate', function(){
+          var laydate = layui.laydate;
+          //执行一个laydate实例
+          laydate.render({
+            elem: '#test6' //指定元素
+            // ,range: true //或 range: '~' 来自定义分割字符
+          });
+
+
+        });
+
     layui.use(['upload'],function () {
         var upload = layui.upload
         //普通图片上传
@@ -65,5 +76,6 @@
                 return layer.msg(res.msg,{icon:5});
             }
         });
+
     });
 </script>

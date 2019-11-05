@@ -3,11 +3,8 @@
 <div class="layui-form-item">
     <label for="" class="layui-form-label">昵称</label>
     <div class="layui-input-inline">
-                <select name="name">
-                    <option value="xuexue">小赵</option>
-                    <option value="shenshen">小申</option>
-                </select>
-            </div>
+        <input type="text" name="name" value="<?php echo e($member->name??old('name')); ?>"  lay-verify="required" class="layui-input" >
+    </div>
 </div>
 
 <div class="layui-form-item">

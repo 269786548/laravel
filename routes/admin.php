@@ -31,6 +31,7 @@ Route::group(['namespace'=>'Admin','prefix'=>'admin','middleware'=>'auth'],funct
     Route::get('/index','IndexController@index')->name('admin.index');
     Route::get('/index1','IndexController@index1')->name('admin.index1');
     Route::get('/index2','IndexController@index2')->name('admin.index2');
+    Route::get('/index3','IndexController@index3')->name('admin.index3');
     //图标
     Route::get('icons','IndexController@icons')->name('admin.icons');
 });
@@ -194,6 +195,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['aut
     });
     
 });
+
 //会员管理
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['auth', 'permission:member.manage']], function () {
     //账号管理

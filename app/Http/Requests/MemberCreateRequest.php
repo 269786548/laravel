@@ -24,9 +24,14 @@ class MemberCreateRequest extends FormRequest
     public function rules()
     {
         return [
-            'phone'   => 'required|numeric|regex:/^1[3456789][0-9]{9}$/|unique:members',
-            'name'  => 'required|min:4|unique:members',
-            'password'  => 'required|confirmed|min:6|max:14'
+            // 'phone'   => 'required|numeric|regex:/^1[3456789][0-9]{9}$/|unique:members',
+            // 'name'  => 'required|min:4|unique:members',
+            // 'avatar'  => 'required|numeric|',
+            // 'remark'  => 'required|',
+            // 'password'  => 'required|confirmed|min:6|max:14'
+            'name'  => 'required|',
+            'avatar'  => 'required|',
+            'remark'  => 'required|',
         ];
     }
 }

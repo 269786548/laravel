@@ -9,7 +9,7 @@
             <form class="layui-form" action="{{route('admin.member.update',['member'=>$member])}}" method="post">
                 <input type="hidden" name="id" value="{{$member->id}}">
                 {{method_field('put')}}
-                @include('admin.member._form')
+                @include('admin.member._edit')
             </form>
         </div>
     </div>

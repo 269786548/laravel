@@ -36,6 +36,10 @@ class IndexController extends Controller
     {
         return view('admin.index.index2');
     }
+    public function index3()
+    {
+        return view('admin.index.index3');
+    }
 
     /**
      * @param Request $request

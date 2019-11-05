@@ -55,10 +55,11 @@ class MemberController extends Controller
     public function store(MemberCreateRequest $request)
     {
         $data = $request->all();
-        $data['password'] = bcrypt($data['password']);
-        $data['uuid'] = \Faker\Provider\Uuid::uuid();
+        // $data['password'] = bcrypt($data['password']);
+        // $data['password'] = bcrypt('123456');
+        // $data['uuid'] = \Faker\Provider\Uuid::uuid();
         if (Member::create($data)){
-            return redirect()->to(route('admin.member'))->with(['status'=>'添加账号成功']);
+            return redirect()->to(route('admin.member'))->with(['status'=>'添加成功']);
         }
         return redirect()->to(route('admin.member'))->withErrors('系统错误');
     }

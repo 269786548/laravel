@@ -17,7 +17,7 @@
                     <input type="text" name="name" id="name" placeholder="请输入昵称" class="layui-input">
                 </div>
                 <div class="layui-input-inline">
-                    <input type="text" name="phone" id="phone" placeholder="请输入手机号" class="layui-input">
+                    <!-- <input type="text" name="phone" id="phone" placeholder="请输入手机号" class="layui-input"> -->
                 </div>
             </div>
         </div>
@@ -43,6 +43,11 @@
 @section('script')
     @can('member.member')
         <script>
+        $(function(){
+
+// alert(layui.v);
+
+});
             layui.use(['layer','table','form'],function () {
                 var layer = layui.layer;
                 var form = layui.form;
@@ -54,14 +59,18 @@
                     ,url: "{{ route('admin.member.data') }}" //数据接口
                     ,where:{model:"member"}
                     ,page: true //开启分页
+                    ,totalRow: true //开启合计行
                     ,cols: [[ //表头
                         {checkbox: true,fixed: true}
-                        ,{field: 'id', title: 'ID', sort: true,width:80}
+                        ,{field: 'id', title: 'ID', sort: true,width:80, totalRowText: '合计：'}
+                        ,{field: 'pay_time', title: '消费日期', sort: true}
                         ,{field: 'name', title: '昵称'}
-                        ,{field: 'phone', title: '手机'}
-                        ,{field: 'avatar', title: '头像',toolbar:'#avatar',width:100}
+                        ,{field: 'avatar', title: '花费',totalRow:'true'}
+                        ,{field: 'remark', title: '备注'}
+                        // ,{field: 'phone', title: '手机'}
+                        // ,{field: 'avatar', title: '头像',toolbar:'#avatar',width:100}
                         ,{field: 'created_at', title: '创建时间'}
-                        ,{field: 'updated_at', title: '更新时间'}
+                        // ,{field: 'updated_at', title: '更新时间'}
                         ,{fixed: 'right', width: 120, align:'center', toolbar: '#options'}
                     ]]
                 });
